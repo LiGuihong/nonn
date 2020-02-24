@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "0", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "batch_norm0_gamma_mul_div_expand", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "batch_norm0_add_beta_expand", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "relu0_NCHW8c", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse_broadcast_mul_broadcast_add_relu___layout_transform__", 
+        "num_inputs": "3", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[0, 0, 0], [1, 0, 0], [2, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "8_OIHW8i8o", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "_contrib_conv2d_nchwc0", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse__contrib_conv2d_NCHWc", 
+        "num_inputs": "2", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[3, 0, 0], [4, 0, 0]]
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "__mul_scalar__0", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse___layout_transform___flatten_flatten___mul_scalar__", 
+        "num_inputs": "1", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[5, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "1", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "__mul_scalar__1", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "dense0", 
+      "attrs": {
+        "flatten_data": "0", 
+        "func_name": "fuse_dense", 
+        "num_inputs": "3", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[6, 0, 0], [7, 0, 0], [8, 0, 0]]
+    }
+  ], 
+  "arg_nodes": [0, 1, 2, 4, 7, 8], 
+  "node_row_ptr": [
+    0, 
+    1, 
+    2, 
+    3, 
+    4, 
+    5, 
+    6, 
+    7, 
+    8, 
+    9, 
+    10
+  ], 
+  "heads": [[9, 0, 0]], 
+  "attrs": {
+    "storage_id": ["list_int", [3, 4, 5, 0, 6, 1, 2, 7, 8, 1]], 
+    "shape": ["list_shape", [
+        [1, 80, 8, 8], 
+        [80, 1, 1], 
+        [80, 1, 1], 
+        [1, 10, 8, 8, 8], 
+        [10, 10, 8, 8, 8, 8], 
+        [1, 10, 1, 1, 8], 
+        [1, 80], 
+        [10, 80], 
+        [10], 
+        [1, 10]]], 
+    "dtype": ["list_int", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
+    "dltype": ["list_str", [
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32"]]
+  }
+}

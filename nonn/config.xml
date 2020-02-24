@@ -1,0 +1,15 @@
+<config>
+	<ga>
+		<ip>127.0.0.1</ip>
+		<port>60260</port>
+	</ga>
+	<gb>
+		<ip>127.0.0.1</ip>
+		<port>1234</port>
+	</gb>
+	<fc>
+		<ip>127.0.0.1</ip>
+		<port>1236</port>
+	</fc>
+</config>
+

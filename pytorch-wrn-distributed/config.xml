@@ -1,0 +1,23 @@
+<config>
+	<stage2L>
+		<ip>127.0.0.1</ip>
+		<port>1248</port>
+	</stage2L>
+	<stage2R>
+		<ip>127.0.0.1</ip>
+		<port>1249</port>
+	</stage2R>
+	<conv0>
+		<ip>127.0.0.1</ip>
+		<port>1247</port>
+	</conv0>
+	<conv1>
+		<ip>127.0.0.1</ip>
+		<port>1243</port>
+	</conv1>
+	<fc>
+		<ip>127.0.0.1</ip>
+		<port>1250</port>
+	</fc>
+</config>
+
