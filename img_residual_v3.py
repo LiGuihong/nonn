@@ -200,12 +200,11 @@ class SimpleNet_order_no_batch(torch.nn.Module):
         cell_idx=0
         out0=self.features1[0](x)
         out0=F.max_pool2d(out0,  kernel_size=3, stride=2)
-        out_dict=out0
+
         out1=F.relu(out0)       
         out1=self.features1[1](out1)
         out_dict=out1
-        feat_dict=[]
-        feat_dict=(out0)
+
         # print(out0.size(),out1.size())
         feat_dict=(torch.cat((out1,out0),1))
         for layer_idx in range(cell_depth-2):
@@ -235,15 +234,13 @@ class SimpleNet_order_no_batch(torch.nn.Module):
         # print(x2.size())
         cell_idx=1
         out0=self.features2[0](x2)
-        out_dict=out0
 
         out1=self.features2[1](out0)
         out_dict=out1
-        feat_dict=[]
-        feat_dict=out0
+
         feat_dict=(torch.cat((out1,out0),1))
         for layer_idx in range(cell_depth-2):
-            in_features=feat_dict[layer_idx]
+            in_features=feat_dict
             if self.layer_tc[cell_idx, layer_idx+2]>0:
                 in_tmp=torch.cat((out_dict,in_features[:,self.link_dict2[layer_idx+2],:,:]),1)
                 if layer_idx<cell_depth-2:
@@ -268,15 +265,13 @@ class SimpleNet_order_no_batch(torch.nn.Module):
         x3=out_dict
         cell_idx=2
         out0=self.features3[0](x3)
-        out_dict=out0
   
         out1=self.features3[1](out0)
         out_dict=out1
-        feat_dict=[]
-        feat_dict=out0
+
         feat_dict=torch.cat((out1,out0),1)
         for layer_idx in range(cell_depth-2):
-            in_features=feat_dict[layer_idx]
+            in_features=feat_dict
             if self.layer_tc[cell_idx, layer_idx+2]>0:
                 in_tmp=torch.cat((out_dict,in_features[:,self.link_dict3[layer_idx+2],:,:]),1)
                 if layer_idx<cell_depth-2:
@@ -302,15 +297,13 @@ class SimpleNet_order_no_batch(torch.nn.Module):
         x4=out_dict[cell_depth-1]
         cell_idx=3
         out0=self.features4[0](x4)
-        out_dict=out0
 
         out1=self.features4[1](out0)
         out_dict=out1
-        feat_dict=[]
-        feat_dict=out0
+
         feat_dict=(torch.cat((out1,out0),1))
         for layer_idx in range(cell_depth-2):
-            in_features=feat_dict[layer_idx]
+            in_features=feat_dict
             if self.layer_tc[cell_idx, layer_idx+2]>0:
                 in_tmp=torch.cat((out_dict,in_features[:,self.link_dict4[layer_idx+2],:,:]),1)
                 if layer_idx<cell_depth-2:
