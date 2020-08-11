@@ -274,7 +274,7 @@ class SimpleNet_order_no_batch(torch.nn.Module):
         out_dict=out1
         feat_dict=[]
         feat_dict=out0
-        feat_dict=torch.cat((out1,out0),1))
+        feat_dict=torch.cat((out1,out0),1)
         for layer_idx in range(cell_depth-2):
             in_features=feat_dict[layer_idx]
             if self.layer_tc[cell_idx, layer_idx+2]>0:
