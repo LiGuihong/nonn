@@ -294,7 +294,7 @@ class SimpleNet_order_no_batch(torch.nn.Module):
                     out_dict=out_tmp  
 
 
-        x4=out_dict[cell_depth-1]
+        x4=out_dict
         cell_idx=3
         out0=self.features4[0](x4)
 
